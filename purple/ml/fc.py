@@ -8,6 +8,7 @@ class FCClassifier(Model):
         super(FCClassifier, self).__init__()
         self.model = tf.keras.Sequential([
             layers.Input(shape=(input_shape,)),
+            tf.keras.layers.Dense(128, activation="relu"),
             tf.keras.layers.Dense(64, activation="relu"),
             tf.keras.layers.Dense(17, activation='softmax')
         ])

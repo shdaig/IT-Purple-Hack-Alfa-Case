@@ -6,8 +6,6 @@ import pandas as pd
 # from sklearn.neural_network import MLPClassifier
 import tensorflow as tf
 
-print("Hello, Kitty!")
-
 pd.options.display.max_rows = 100
 
 train_df = pd.read_parquet("data/train_data_modefilled.pqt")
@@ -28,7 +26,7 @@ model.compile(loss=tf.keras.losses.CategoricalCrossentropy(),
               optimizer=tf.keras.optimizers.Adam(learning_rate=1e-3),
               metrics=['accuracy'])
 model.fit(x_train, y_train,
-          epochs=15,
+          epochs=30,
           batch_size=256)
 
 test_pred_proba = model.predict(x_test)
